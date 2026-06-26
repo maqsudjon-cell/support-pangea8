@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support Pangea8 · Keep IELTS Free</title>
-  <meta name="description" content="Support free IELTS preparation — Pangea8">
+  <title>Support Pangea8 — Free IELTS for All</title>
+  <meta name="description" content="Support Pangea8 — free IELTS practice platform. 100+ tests, free forever.">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
@@ -12,135 +12,150 @@
     html{scroll-behavior:smooth}
     body{
       font-family:'Inter',-apple-system,BlinkMacFont,Segoe UI,sans-serif;
-      background:#000;color:#fff;
+      background:#0b0d17;
+      color:#fff;
       -webkit-font-smoothing:antialiased;
-      font-weight:300;letter-spacing:0.015em;
     }
-    .space-bg{background:#000}
-    .section-line{
-      position:relative;
+    .nasa-bg{
+      background: linear-gradient(180deg, #0b0d17 0%, #11152a 50%, #0b0d17 100%);
     }
-    .section-line::after{
-      content:'';position:absolute;bottom:0;left:0;right:0;
-      height:1px;background:rgba(255,255,255,0.06);
+    .stars-bg{
+      position:fixed;inset:0;pointer-events:none;z-index:0;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1.5px 1.5px at 50% 10%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1.5px 1.5px at 15% 85%, rgba(255,255,255,0.25), transparent),
+        radial-gradient(1px 1px at 45% 35%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1.5px 1.5px at 25% 50%, rgba(255,255,255,0.15), transparent),
+        radial-gradient(1px 1px at 65% 75%, rgba(255,255,255,0.25), transparent),
+        radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1.5px 1.5px at 75% 5%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 35% 95%, rgba(255,255,255,0.15), transparent),
+        radial-gradient(1px 1px at 95% 55%, rgba(255,255,255,0.2), transparent),
+        radial-gradient(1.5px 1.5px at 55% 25%, rgba(255,255,255,0.25), transparent);
+      background-size:200px 200px;
     }
-    .card-space{
-      background:rgba(255,255,255,0.02);
-      border:1px solid rgba(255,255,255,0.06);
-      transition:all 0.3s ease;
+    .content{position:relative;z-index:1}
+    .nasa-stripe{
+      height:4px;
+      background:linear-gradient(90deg, #0b3d91 0%, #fc3d21 50%, #0b3d91 100%);
     }
-    .card-space:hover{
+    .card-nasa{
       background:rgba(255,255,255,0.03);
-      border-color:rgba(255,255,255,0.1);
-    }
-    .btn-space{
-      background:transparent;
-      border:1.5px solid #fff;
-      color:#fff;
-      font-weight:600;
-      font-size:0.75rem;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      padding:1rem 2.5rem;
-      cursor:pointer;
-      transition:all 0.3s;
-      display:inline-flex;
-      align-items:center;
-      gap:0.75rem;
-    }
-    .btn-space:hover{
-      background:#fff;
-      color:#000;
-    }
-    .btn-space-fill{
-      background:#fff;
-      border:none;
-      color:#000;
-      font-weight:700;
-      font-size:0.75rem;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      padding:1rem 2.5rem;
-      cursor:pointer;
-      transition:all 0.3s;
-      display:inline-flex;
-      align-items:center;
-      gap:0.75rem;
-    }
-    .btn-space-fill:hover{
-      background:rgba(255,255,255,0.85);
-    }
-    .stat-space{
       border:1px solid rgba(255,255,255,0.06);
-      padding:1.5rem 0.75rem;
-      text-align:center;
+      backdrop-filter:blur(10px);
       transition:all 0.3s;
     }
-    .stat-space:hover{
-      border-color:rgba(255,255,255,0.15);
+    .card-nasa:hover{
+      background:rgba(255,255,255,0.05);
+      border-color:rgba(255,255,255,0.12);
     }
-    .stat-space .value{
-      font-weight:700;
-      font-size:1.75rem;
-      letter-spacing:-0.02em;
+    .btn-nasa{
+      background:#0b3d91;
+      border:none;
       color:#fff;
-    }
-    .stat-space .label{
-      font-size:0.6rem;
+      font-weight:700;
+      font-size:0.8125rem;
+      letter-spacing:0.08em;
       text-transform:uppercase;
-      letter-spacing:0.15em;
-      color:rgba(255,255,255,0.3);
-      margin-top:0.25rem;
-      font-weight:500;
+      padding:0.875rem 2rem;
+      cursor:pointer;
+      transition:all 0.3s;
+      display:inline-flex;
+      align-items:center;
+      gap:0.75rem;
     }
-    .avatar-space{
-      width:72px;height:72px;
-      border:1px solid rgba(255,255,255,0.15);
-      display:flex;align-items:center;justify-content:center;
-      font-size:20px;font-weight:400;color:rgba(255,255,255,0.5);
-      letter-spacing:1px;margin:0 auto;
+    .btn-nasa:hover{
+      background:#0a3480;
+      box-shadow:0 0 20px rgba(11,61,145,0.4);
     }
-    .label-space{
-      font-size:0.6rem;
-      letter-spacing:0.15em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,0.2);
-      font-weight:500;
-      margin-bottom:0.5rem;
-    }
-    .copy-space{
+    .btn-nasa-outline{
       background:transparent;
-      border:1px solid rgba(255,255,255,0.1);
-      color:rgba(255,255,255,0.4);
+      border:1px solid rgba(255,255,255,0.15);
+      color:rgba(255,255,255,0.7);
       font-size:0.65rem;
       letter-spacing:0.1em;
       text-transform:uppercase;
-      font-weight:500;
-      padding:0.75rem 1rem;
+      font-weight:600;
+      padding:0.625rem 1rem;
       cursor:pointer;
       transition:all 0.25s;
     }
-    .copy-space:hover{
-      border-color:rgba(255,255,255,0.3);
-      color:rgba(255,255,255,0.7);
+    .btn-nasa-outline:hover{
+      border-color:#fc3d21;
+      color:#fc3d21;
     }
-    .input-space{
+    .stat-nasa{
       background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.06);
+      padding:1.25rem 0.5rem;
+      text-align:center;
+    }
+    .stat-nasa .value{
+      font-weight:800;
+      font-size:1.75rem;
+      color:#fc3d21;
+      letter-spacing:-0.02em;
+    }
+    .stat-nasa .label{
+      font-size:0.55rem;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.3);
+      margin-top:0.35rem;
+      font-weight:600;
+    }
+    .avatar-nasa{
+      width:80px;height:80px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,0.1);
+      display:flex;align-items:center;justify-content:center;
+      font-size:28px;font-weight:800;
+      color:#fc3d21;
+      margin:0 auto;
+      background:rgba(11,61,145,0.15);
+      box-shadow:0 0 30px rgba(11,61,145,0.2);
+    }
+    .input-nasa{
+      background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.06);
       padding:0.875rem 1rem;
       font-family:'Inter',monospace;
-      font-weight:500;
-      letter-spacing:0.05em;
-      color:rgba(255,255,255,0.8);
+      font-weight:600;
       font-size:clamp(0.875rem,3vw,1rem);
+      letter-spacing:0.05em;
+      color:rgba(255,255,255,0.85);
       user-select:all;
       transition:all 0.25s;
     }
-    .input-space:focus-within{
-      border-color:rgba(255,255,255,0.2);
-      background:rgba(255,255,255,0.04);
+    .input-nasa:focus-within{
+      border-color:#fc3d21;
+      background:rgba(252,61,33,0.05);
     }
-    .qr-space{
+    .label-nasa{
+      font-size:0.55rem;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.3);
+      font-weight:600;
+      margin-bottom:0.4rem;
+      display:block;
+    }
+    .tag-nasa{
+      display:inline-flex;align-items:center;gap:4px;
+      background:rgba(252,61,33,0.1);
+      color:#fc3d21;
+      font-size:0.55rem;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+      font-weight:700;
+      padding:0.2rem 0.65rem;
+    }
+    .qr-nasa{
       width:120px;height:120px;
       border:1px solid rgba(255,255,255,0.06);
       padding:3px;
@@ -148,30 +163,42 @@
       transition:all 0.3s;
       display:block;
     }
-    .qr-space:hover{border-color:rgba(255,255,255,0.2);}
-    .qr-space img{width:100%;height:100%;display:block;}
-    .divider-space{height:1px;background:rgba(255,255,255,0.06);margin:1.5rem 0;}
-    .title-hero{
-      font-weight:700;
-      font-size:clamp(1.75rem,5vw,2.25rem);
-      letter-spacing:-0.02em;
-      line-height:1.1;
+    .qr-nasa:hover{border-color:#fc3d21;}
+    .qr-nasa img{width:100%;height:100%;display:block;}
+    .divider-nasa{height:1px;background:rgba(255,255,255,0.06);margin:1.5rem 0;}
+    .title-nasa{
+      font-weight:800;
+      font-size:clamp(1.75rem,5.5vw,2.5rem);
+      letter-spacing:-0.03em;
+      line-height:1.05;
+      text-transform:uppercase;
     }
-    .sub-hero{
-      font-size:0.8125rem;
-      font-weight:300;
+    .sub-nasa{
+      font-size:0.75rem;
+      font-weight:400;
       color:rgba(255,255,255,0.4);
-      letter-spacing:0.05em;
-    }
-    .tag-space{
-      display:inline-flex;align-items:center;gap:4px;
-      border:1px solid rgba(255,255,255,0.06);
-      padding:0.2rem 0.65rem;
-      font-size:0.55rem;
       letter-spacing:0.12em;
       text-transform:uppercase;
-      color:rgba(255,255,255,0.25);
-      font-weight:500;
+    }
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:6px;
+      background:rgba(11,61,145,0.2);
+      border:1px solid rgba(11,61,145,0.3);
+      padding:0.3rem 0.75rem;
+      font-size:0.5rem;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+      color:#0b3d91;
+      font-weight:700;
+    }
+    .hero-badge span{color:#fc3d21;}
+    .earth-glow{
+      position:absolute;
+      width:200px;height:200px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(11,61,145,0.08) 0%, transparent 70%);
+      top:-40px;right:-60px;
+      pointer-events:none;
     }
     .fade{opacity:0;transform:translateY(16px);animation:f 0.5s ease forwards;}
     @keyframes f{to{opacity:1;transform:translateY(0);}}
@@ -179,87 +206,112 @@
     .d4{animation-delay:0.28s}.d5{animation-delay:0.36s}.d6{animation-delay:0.44s}.d7{animation-delay:0.52s}
     .toast{
       position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
-      background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);
-      color:#fff;padding:12px 24px;font-size:0.8125rem;font-weight:400;
-      letter-spacing:0.03em;opacity:0;transition:all 0.35s ease;
-      z-index:100;white-space:nowrap;border:1px solid rgba(255,255,255,0.06);
+      background:#0b3d91;color:#fff;padding:12px 24px;font-size:0.8125rem;
+      font-weight:500;letter-spacing:0.05em;opacity:0;transition:all 0.35s;
+      z-index:100;white-space:nowrap;
     }
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-    .hr-custom{width:32px;height:1.5px;background:rgba(255,255,255,0.15);margin:0.75rem 0;}
+    .hero-img{
+      width:100%;height:140px;
+      background:linear-gradient(135deg, rgba(11,61,145,0.15) 0%, rgba(252,61,33,0.05) 100%);
+      border:1px solid rgba(255,255,255,0.04);
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;position:relative;
+    }
+    .hero-img svg{width:100%;height:100%;}
     @media(max-width:420px){
-      .input-space{font-size:0.8125rem;padding:0.75rem 0.75rem;letter-spacing:0.03em;}
-      .btn-space,.btn-space-fill{font-size:0.65rem;padding:0.75rem 1.5rem;}
+      .input-nasa{font-size:0.8125rem;padding:0.75rem;}
+      .stat-nasa .value{font-size:1.35rem;}
     }
   </style>
 </head>
-<body class="space-bg min-h-screen">
+<body class="nasa-bg min-h-screen">
+<div class="stars-bg"></div>
+<div class="nasa-stripe"></div>
 
 <div id="toast" class="toast">✓ Copied</div>
 
-<div class="max-w-[420px] mx-auto px-5 py-12 min-h-screen flex flex-col">
+<div class="content max-w-[420px] mx-auto px-5 py-8 min-h-screen flex flex-col">
 
-  <!-- Hero -->
-  <div class="text-center fade d1 mb-8">
-    <div class="avatar-space mb-5">M</div>
-    <h1 class="title-hero text-white mb-2">Support<br>Pangea8</h1>
-    <p class="sub-hero max-w-[260px] mx-auto">Free IELTS preparation. Built in Uzbekistan.</p>
-    <div class="flex items-center justify-center gap-3 mt-4">
-      <span class="tag-space">100% free</span>
-      <span class="text-[0.55rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.15)]">🇺🇿</span>
+  <!-- Hero Image -->
+  <div class="hero-img mb-6 fade d1" style="background:linear-gradient(135deg, #0a1628 0%, #1a1f3a 50%, #0b0d17 100%);border:1px solid rgba(255,255,255,0.04);border-radius:4px;height:160px">
+    <div style="text-align:center;opacity:0.6">
+      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="28" stroke="#0b3d91" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="30" cy="30" r="18" stroke="#fc3d21" stroke-width="1" opacity="0.4"/>
+        <circle cx="30" cy="30" r="8" fill="#fc3d21" opacity="0.3"/>
+        <path d="M30 2C30 2 35 15 35 30C35 45 30 58 30 58" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+        <path d="M30 2C30 2 25 15 25 30C25 45 30 58 30 58" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+        <circle cx="10" cy="15" r="1.5" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.2)"/>
+        <circle cx="45" cy="45" r="1.5" fill="rgba(255,255,255,0.25)"/>
+        <circle cx="15" cy="48" r="1" fill="rgba(255,255,255,0.15)"/>
+      </svg>
+      <p style="font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-top:8px">Pangea8 · Education for All</p>
     </div>
   </div>
 
+  <!-- Hero Text -->
+  <div class="text-center fade d2 mb-6">
+    <div class="hero-badge mb-3">☕ <span>Support</span> · Mission</div>
+    <h1 class="title-nasa text-white mb-2">Support<br>Pangea8</h1>
+    <p class="sub-nasa max-w-[280px] mx-auto">Free IELTS preparation for every student</p>
+  </div>
+
   <!-- About -->
-  <div class="card-space p-5 mb-4 fade d2">
-    <p class="text-[0.8125rem] font-light text-[rgba(255,255,255,0.6)] leading-relaxed">
-      Hi, I'm <span class="font-medium text-white">Maqsudjon</span> — creator of 
-      <a href="https://pangea8.com" target="_blank" class="text-white font-medium hover:opacity-70 transition-opacity">pangea8.com</a>.
+  <div class="card-nasa p-5 mb-4 fade d3">
+    <p class="text-[0.8125rem] font-light text-[rgba(255,255,255,0.55)] leading-relaxed">
+      <span class="font-semibold text-white">Mission:</span> Free, accessible IELTS preparation for all.
     </p>
-    <p class="text-[0.8125rem] font-light text-[rgba(255,255,255,0.6)] leading-relaxed mt-3">
-      <span class="text-white">100+ free practice tests</span> for IELTS — Listening, Reading, Writing, Speaking. Instant band scores, zero paywalls. Made for every student.
+    <p class="text-[0.8125rem] font-light text-[rgba(255,255,255,0.55)] leading-relaxed mt-3">
+      I'm <span class="font-semibold text-white">Maqsudjon</span>, creator of 
+      <a href="https://pangea8.com" target="_blank" class="text-white font-medium border-b border-[#fc3d21] hover:border-b-2 transition-all">pangea8.com</a>.
+      <span class="text-white">100+ tests</span>, all free, built in Uzbekistan.
     </p>
-    <p class="text-[0.8125rem] font-light text-[rgba(255,255,255,0.5)] leading-relaxed mt-3">
-      Your support keeps it free and growing.
+    <p class="text-[0.8125rem] font-light text-[rgba(255,255,255,0.45)] leading-relaxed mt-3">
+      Your support = more tests, more reach. 🚀
     </p>
   </div>
 
   <!-- Stats -->
-  <div class="grid grid-cols-3 gap-px bg-[rgba(255,255,255,0.06)] mb-5 fade d3">
-    <div class="stat-space value">100+<div class="label">Tests</div></div>
-    <div class="stat-space value">4<div class="label">Skills</div></div>
-    <div class="stat-space value">$0<div class="label">Free</div></div>
+  <div class="grid grid-cols-3 gap-px bg-[rgba(255,255,255,0.06)] mb-5 fade d4">
+    <div class="stat-nasa"><div class="value">100+</div><div class="label">Tests</div></div>
+    <div class="stat-nasa"><div class="value">4</div><div class="label">Skills</div></div>
+    <div class="stat-nasa"><div class="value">$0</div><div class="label">Free</div></div>
   </div>
 
   <!-- Donate CTA -->
   <div class="text-center mb-5 fade d4">
-    <a href="#donate" class="btn-space text-xs">
+    <a href="#donate" class="btn-nasa">
       Donate — Support
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
     </a>
   </div>
 
   <!-- Bank Card -->
-  <div id="donate" class="card-space p-5 mb-4 fade d5 scroll-mt-20">
+  <div id="donate" class="card-nasa p-5 mb-4 fade d5 scroll-mt-20">
     <div class="flex items-center justify-between mb-5">
-      <span class="text-[0.6rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.2)] font-medium">Bank transfer</span>
-      <span class="tag-space">mastercard</span>
+      <div class="flex items-center gap-2">
+        <span class="text-[0.55rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.25)] font-semibold">Transfer</span>
+      </div>
+      <span class="tag-nasa">mastercard</span>
     </div>
 
     <!-- Card Number -->
     <div class="mb-3">
-      <div class="label-space">Card number</div>
+      <label class="label-nasa">Card number</label>
       <div class="flex items-stretch gap-1">
-        <div class="input-space flex-1 flex items-center" id="cardNum">5477 3300 2441 7911</div>
-        <button onclick="copyText('cardNum',this)" class="copy-space">Copy</button>
+        <div class="input-nasa flex-1 flex items-center" id="cardNum">5477 3300 2441 7911</div>
+        <button onclick="copyText('cardNum',this)" class="btn-nasa-outline">Copy</button>
       </div>
     </div>
 
     <!-- Cardholder -->
     <div class="mb-3">
-      <div class="label-space">Cardholder</div>
+      <label class="label-nasa">Cardholder</label>
       <div class="flex items-stretch gap-1">
-        <div class="input-space flex-1 flex items-center tracking-[0.03em]" id="cardName">POLATOV MAKSUDJON</div>
-        <button onclick="copyText('cardName',this)" class="copy-space">Copy</button>
+        <div class="input-nasa flex-1 flex items-center" id="cardName">POLATOV MAKSUDJON</div>
+        <button onclick="copyText('cardName',this)" class="btn-nasa-outline">Copy</button>
       </div>
     </div>
 
@@ -267,50 +319,41 @@
     <div class="flex items-center gap-3 border border-[rgba(255,255,255,0.06)] p-3">
       <span class="text-xs opacity-40">💳</span>
       <span class="text-[0.75rem] text-[rgba(255,255,255,0.5)] font-medium">Mastercard</span>
-      <span class="text-[0.55rem] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.15)] ml-auto">International</span>
+      <span class="text-[0.5rem] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.15)] ml-auto">International</span>
     </div>
 
     <!-- QR -->
-    <div class="divider-space"></div>
+    <div class="divider-nasa"></div>
     <div class="text-center">
-      <p class="label-space text-center">Scan with mobile banking</p>
-      <div class="qr-space">
-        <img src="qr-code.png" alt="QR">
-      </div>
+      <p class="label-nasa text-center" style="margin-bottom:0.75rem">Scan with mobile banking</p>
+      <div class="qr-nasa"><img src="qr-code.png" alt="QR"></div>
     </div>
 
     <!-- Thank you -->
-    <div class="divider-space"></div>
-    <p class="text-[0.75rem] text-center font-light text-[rgba(255,255,255,0.35)] leading-relaxed">
-      Thank you for supporting free access to education.
+    <div class="divider-nasa"></div>
+    <p class="text-[0.7rem] text-center font-light text-[rgba(255,255,255,0.35)] leading-relaxed uppercase tracking-[0.05em]">
+      Thank you for supporting free education.
     </p>
   </div>
 
   <!-- Footer -->
   <div class="mt-auto text-center pt-4 fade d7">
-    <a href="https://pangea8.com" target="_blank" 
-       class="inline-flex items-center gap-1 text-[0.65rem] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.2)] hover:text-[rgba(255,255,255,0.5)] transition-colors font-medium">
+    <a href="https://pangea8.com" target="_blank" class="inline-flex items-center gap-1 text-[0.55rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.15)] hover:text-[#fc3d21] transition-colors font-semibold">
       ← pangea8.com
     </a>
-    <p class="text-[0.5rem] uppercase tracking-[0.2em] text-[rgba(255,255,255,0.08)] mt-4 font-medium">Uzbekistan</p>
+    <p class="text-[0.45rem] uppercase tracking-[0.2em] text-[rgba(255,255,255,0.06)] mt-3 font-semibold">Built in Uzbekistan</p>
   </div>
 </div>
 
 <script>
-function copyText(id, btn) {
-  const el = document.getElementById(id);
-  const text = el.textContent.trim();
-  if (navigator.clipboard?.writeText) { navigator.clipboard.writeText(text); }
-  else { const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta); }
-  const orig=btn.innerHTML;
-  btn.innerHTML='Copied';
-  btn.style.borderColor='rgba(255,255,255,0.3)';btn.style.color='rgba(255,255,255,0.8)';
+function copyText(id,btn){
+  const el=document.getElementById(id);const text=el.textContent.trim();
+  if(navigator.clipboard?.writeText){navigator.clipboard.writeText(text);}
+  else{const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);}
+  const orig=btn.innerHTML;btn.innerHTML='Copied';btn.style.borderColor='#fc3d21';btn.style.color='#fc3d21';
   setTimeout(()=>{btn.innerHTML=orig;btn.style.borderColor='';btn.style.color='';},1500);
-  const t=document.getElementById('toast');
-  t.textContent='✓ '+(id==='cardNum'?'Card number':'Cardholder name')+' copied';
-  t.classList.add('show');
-  clearTimeout(window._tt);
-  window._tt=setTimeout(()=>t.classList.remove('show'),2000);
+  const t=document.getElementById('toast');t.textContent='✓ '+(id==='cardNum'?'Card number':'Cardholder name')+' copied';
+  t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),2000);
 }
 </script>
 </body>
