@@ -3,106 +3,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support Maqsudjon - Pangea8</title>
+  <title>Support Pangea8 — Keep IELTS Free</title>
+  <meta name="description" content="Support Pangea8 — free IELTS practice platform. Help keep 100+ tests accessible for every student.">
+  <meta name="keywords" content="IELTS, free IELTS practice, Pangea8, support, donation, Uzbekistan">
+  <meta property="og:title" content="Support Pangea8">
+  <meta property="og:description" content="Help keep free IELTS preparation accessible for everyone.">
+  <meta property="og:image" content="https://pangea8.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
-    .gradient-bg { background: linear-gradient(135deg, #fef9e7 0%, #fdebd0 50%, #fff9e6 100%); }
-    .card-gradient { background: linear-gradient(135deg, #1a1a2e, #16213e); }
-    .pulse-glow { animation: pulseGlow 2s infinite; }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.5); }
-      50% { box-shadow: 0 0 0 15px rgba(251, 191, 36, 0); }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: #060A09;
+      color: #fff;
+      min-height: 100vh;
     }
-    .fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 0.6s ease forwards; }
+    .gradient-hero {
+      background: radial-gradient(ellipse at 50% 0%, rgba(57, 208, 127, 0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 100%, rgba(57, 208, 127, 0.04) 0%, transparent 50%),
+                  #060A09;
+    }
+    .glow { box-shadow: 0 0 30px rgba(57, 208, 127, 0.15); }
+    .glow-card {
+      background: linear-gradient(135deg, rgba(57, 208, 127, 0.05), rgba(6, 10, 9, 0.8));
+      border: 1px solid rgba(57, 208, 127, 0.15);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .glow-card:hover {
+      border-color: rgba(57, 208, 127, 0.35);
+      box-shadow: 0 8px 40px rgba(57, 208, 127, 0.1);
+    }
+    .btn-donate {
+      background: linear-gradient(135deg, #39D07F, #2bb86e);
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(57, 208, 127, 0.3);
+    }
+    .btn-donate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(57, 208, 127, 0.4);
+    }
+    .btn-donate:active { transform: translateY(0); }
+    .border-glow { border: 1px solid rgba(57, 208, 127, 0.2); }
+    .input-glow:focus-within { border-color: #39D07F; box-shadow: 0 0 0 3px rgba(57, 208, 127, 0.1); }
+    .avatar {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: linear-gradient(135deg, #39D07F, #1a7a4a);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px; font-weight: 800; color: #060A09;
+      margin: 0 auto;
+      box-shadow: 0 0 30px rgba(57, 208, 127, 0.3);
+    }
+    .pulse-ring { animation: pulseRing 2s infinite; }
+    @keyframes pulseRing {
+      0% { box-shadow: 0 0 0 0 rgba(57, 208, 127, 0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(57, 208, 127, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(57, 208, 127, 0); }
+    }
+    .fade-up { opacity: 0; transform: translateY(24px); animation: fadeUp 0.6s ease forwards; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    .fade-up:nth-child(1) { animation-delay: 0.1s; }
-    .fade-up:nth-child(2) { animation-delay: 0.3s; }
-    .fade-up:nth-child(3) { animation-delay: 0.5s; }
-    .fade-up:nth-child(4) { animation-delay: 0.7s; }
-    .fade-up:nth-child(5) { animation-delay: 0.9s; }
+    .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.25s; } .d-3 { animation-delay: 0.4s; }
+    .d-4 { animation-delay: 0.55s; } .d-5 { animation-delay: 0.7s; } .d-6 { animation-delay: 0.85s; }
+    .d-7 { animation-delay: 1.0s; }
     .copy-btn { transition: all 0.2s; }
     .copy-btn:active { transform: scale(0.95); }
-    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px); background: #065f46; color: white; padding: 12px 24px; border-radius: 12px; font-weight: 600; font-size: 14px; opacity: 0; transition: all 0.3s; z-index: 50; }
+    .stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); transition: all 0.3s; }
+    .stat-card:hover { background: rgba(57, 208, 127, 0.05); border-color: rgba(57, 208, 127, 0.2); }
+    .toast {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px);
+      background: #39D07F; color: #060A09; padding: 14px 28px; border-radius: 14px;
+      font-weight: 700; font-size: 14px; opacity: 0; transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 50; white-space: nowrap; box-shadow: 0 8px 32px rgba(57, 208, 127, 0.3);
+    }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-    .avatar { width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #d97706); display: flex; align-items: center; justify-content: center; font-size: 40px; color: white; font-weight: 700; margin: 0 auto; box-shadow: 0 8px 24px rgba(217, 119, 6, 0.3); }
-    .btn-primary { background: linear-gradient(135deg, #f59e0b, #d97706); transition: all 0.2s; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(217, 119, 6, 0.4); }
-    .btn-secondary { border: 1px solid #e5e7eb; transition: all 0.2s; }
-    .btn-secondary:hover { background: #f3f4f6; border-color: #f59e0b; }
+    .qr-box {
+      width: 160px; height: 160px; background: rgba(255,255,255,0.03);
+      border: 2px dashed rgba(57, 208, 127, 0.25); border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s;
+    }
+    .qr-box:hover { border-color: rgba(57, 208, 127, 0.5); background: rgba(57, 208, 127, 0.05); }
+    .card-num-text { letter-spacing: 2px; word-spacing: 4px; }
+    @media (max-width: 420px) { .card-num-text { font-size: 15px; letter-spacing: 1px; } }
+    .grid-lines {
+      background-image: 
+        linear-gradient(rgba(57, 208, 127, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 208, 127, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
   </style>
 </head>
-<body class="gradient-bg min-h-screen">
+<body class="gradient-hero grid-lines">
 
-<!-- Toast -->
-<div id="toast" class="toast">✅ Copied!</div>
+<div id="toast" class="toast">✅ Copied to clipboard</div>
 
-<!-- Main Container -->
-<div class="max-w-lg mx-auto px-4 py-8 min-h-screen">
+<div class="max-w-lg mx-auto px-5 py-10 min-h-screen flex flex-col">
 
-  <!-- Profile Section -->
-  <div class="text-center fade-up">
-    <div class="avatar mb-4">M</div>
-    <h1 class="text-3xl font-bold text-gray-800 mb-1">Support Pangea8 ☕</h1>
-    <p class="text-gray-500 text-sm mb-2">🇺🇿 Made in Uzbekistan</p>
-  </div>
-
-  <!-- About Card -->
-  <div class="bg-white rounded-2xl shadow-lg p-6 mb-5 fade-up border border-yellow-100">
-    <h2 class="text-lg font-bold text-gray-800 mb-3">👋 About</h2>
-    <p class="text-gray-600 text-sm leading-relaxed">
-      Hi! I'm <strong>Maqsudjon</strong>, the creator of 
-      <a href="https://pangea8.com" target="_blank" class="text-yellow-600 font-semibold hover:underline">pangea8.com</a> 
-      — a completely <strong>free</strong> IELTS preparation platform made in Uzbekistan 🇺🇿.
-    </p>
-    <p class="text-gray-600 text-sm leading-relaxed mt-3">
-      It offers <strong>100+ full practice tests</strong> with instant band scores. 
-      I built this so every student can prepare for IELTS without any paywalls. 🎯
-    </p>
-    <p class="text-gray-600 text-sm leading-relaxed mt-3 font-medium">
-      If pangea8.com has helped you, your support means a lot! 💛
+  <!-- Hero -->
+  <div class="text-center fade-up d-1 mb-6">
+    <div class="avatar pulse-ring mb-4">M</div>
+    <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">Support Pangea8</h1>
+    <p class="text-gray-400 text-sm md:text-base max-w-sm mx-auto leading-relaxed">
+      Help keep free IELTS preparation accessible for <span class="text-[#39D07F]">everyone</span>
     </p>
   </div>
 
-  <!-- Donate Button -->
-  <div class="text-center fade-up mb-5">
-    <a href="#donate" 
-       class="inline-flex items-center gap-3 btn-primary text-white font-bold px-10 py-4 rounded-2xl text-lg pulse-glow shadow-lg">
-      ☕ Donate
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg>
-    </a>
-    <p class="text-gray-400 text-xs mt-2">Click to see bank details</p>
+  <!-- About -->
+  <div class="glow-card rounded-2xl p-5 md:p-6 mb-5 fade-up d-2">
+    <h2 class="text-sm font-semibold text-[#39D07F] uppercase tracking-wider mb-3">👋 About</h2>
+    <p class="text-gray-300 text-sm leading-relaxed">
+      Hi! I'm <strong class="text-white">Maqsudjon</strong>, the creator of 
+      <a href="https://pangea8.com" target="_blank" class="text-[#39D07F] font-semibold hover:underline">pangea8.com</a> 
+      — a completely free IELTS preparation platform built in <span class="text-white font-medium">Uzbekistan</span> 🇺🇿
+    </p>
+    <p class="text-gray-300 text-sm leading-relaxed mt-3">
+      With <strong class="text-white">100+ full practice tests</strong> across Listening, Reading, Writing and Speaking — plus instant band scores — I created this so students can prepare for the real exam without any paywalls. 🎯
+    </p>
+    <p class="text-gray-300 text-sm leading-relaxed mt-3">
+      Your support helps add more tests and reach more students. 🙏
+    </p>
   </div>
 
   <!-- Stats -->
-  <div class="grid grid-cols-3 gap-3 mb-5 fade-up">
-    <div class="bg-white rounded-xl shadow p-4 text-center border border-yellow-50">
-      <div class="text-2xl font-bold text-yellow-500">100+</div>
+  <div class="grid grid-cols-3 gap-3 mb-5 fade-up d-3">
+    <div class="stat-card rounded-xl p-4 text-center">
+      <div class="text-xl md:text-2xl font-extrabold text-[#39D07F]">100+</div>
       <div class="text-gray-500 text-xs mt-1">Free Tests</div>
     </div>
-    <div class="bg-white rounded-xl shadow p-4 text-center border border-yellow-50">
-      <div class="text-2xl font-bold text-yellow-500">4</div>
+    <div class="stat-card rounded-xl p-4 text-center">
+      <div class="text-xl md:text-2xl font-extrabold text-[#39D07F]">4</div>
       <div class="text-gray-500 text-xs mt-1">Skills</div>
     </div>
-    <div class="bg-white rounded-xl shadow p-4 text-center border border-yellow-50">
-      <div class="text-2xl font-bold text-yellow-500">$0</div>
+    <div class="stat-card rounded-xl p-4 text-center">
+      <div class="text-xl md:text-2xl font-extrabold text-[#39D07F]">$0</div>
       <div class="text-gray-500 text-xs mt-1">Always Free</div>
     </div>
   </div>
 
-  <!-- Bank Details Section -->
-  <div id="donate" class="bg-white rounded-2xl shadow-lg p-6 mb-5 fade-up border border-yellow-100 scroll-mt-20">
-    <h2 class="text-lg font-bold text-gray-800 mb-2 text-center">💳 Bank Details</h2>
-    <p class="text-center text-gray-400 text-xs mb-5">Transfer your support directly</p>
+  <!-- Donate CTA -->
+  <div class="text-center mb-5 fade-up d-4">
+    <a href="#donate" 
+       class="btn-donate inline-flex items-center gap-3 text-white font-bold px-8 py-4 rounded-2xl text-base pulse-ring">
+      ☕ Donate — Support IELTS
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17L17 7"/></svg>
+    </a>
+    <p class="text-gray-600 text-xs mt-2">Tap to view bank details</p>
+  </div>
+
+  <!-- Bank Card -->
+  <div id="donate" class="glow-card rounded-2xl p-5 md:p-6 mb-5 fade-up d-5 scroll-mt-20">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="text-2xl">💳</span>
+      <div>
+        <h2 class="text-lg font-bold text-white">Bank Card Transfer</h2>
+        <p class="text-gray-500 text-xs">Uzbekistan — UZS transfer</p>
+      </div>
+    </div>
 
     <!-- Card Number -->
     <div class="mb-4">
-      <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 block">Card Number</label>
-      <div class="flex items-center gap-2">
-        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-mono text-lg font-bold text-gray-800 tracking-wider select-all" id="cardNum">5477 3300 2441 7911</div>
-        <button onclick="copyText('cardNum', this)" class="copy-btn btn-secondary rounded-xl px-4 py-3 font-medium text-sm text-gray-600 whitespace-nowrap hover:bg-yellow-50">
+      <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 block">Card Number</label>
+      <div class="input-glow bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.1)] rounded-xl p-1 flex items-center gap-2 transition-all duration-200">
+        <div class="flex-1 px-3 py-3 font-mono font-bold card-num-text text-white select-all text-base md:text-lg" id="cardNum">5477 3300 2441 7911</div>
+        <button onclick="copyText('cardNum', this)" class="copy-btn bg-[rgba(57,208,127,0.1)] hover:bg-[rgba(57,208,127,0.2)] text-[#39D07F] font-semibold rounded-lg px-4 py-3 text-sm whitespace-nowrap transition-all">
           📋 Copy
         </button>
       </div>
@@ -110,10 +174,10 @@
 
     <!-- Cardholder -->
     <div class="mb-4">
-      <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 block">Cardholder</label>
-      <div class="flex items-center gap-2">
-        <div class="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-mono text-base font-semibold text-gray-700 select-all" id="cardName">POLATOV MAKSUDJON</div>
-        <button onclick="copyText('cardName', this)" class="copy-btn btn-secondary rounded-xl px-4 py-3 font-medium text-sm text-gray-600 whitespace-nowrap hover:bg-yellow-50">
+      <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 block">Cardholder</label>
+      <div class="flex items-center gap-2 bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.1)] rounded-xl p-1">
+        <div class="flex-1 px-3 py-3 font-semibold text-white select-all text-sm md:text-base" id="cardName">POLATOV MAKSUDJON</div>
+        <button onclick="copyText('cardName', this)" class="copy-btn bg-[rgba(57,208,127,0.1)] hover:bg-[rgba(57,208,127,0.2)] text-[#39D07F] font-semibold rounded-lg px-4 py-3 text-sm whitespace-nowrap transition-all">
           📋 Copy
         </button>
       </div>
@@ -121,39 +185,41 @@
 
     <!-- Card Type -->
     <div class="mb-4">
-      <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 block">Card Type</label>
-      <div class="flex items-center gap-3 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3">
-        <span class="text-xl">💳</span>
-        <span class="font-semibold text-gray-700">Mastercard</span>
+      <label class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 block">Card Type</label>
+      <div class="flex items-center gap-3 bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-3">
+        <span class="text-lg">💳</span>
+        <span class="font-semibold text-gray-300">Mastercard</span>
+        <span class="text-xs text-gray-600 ml-auto">International</span>
       </div>
     </div>
 
-    <!-- QR Placeholder -->
-    <div class="mt-5 pt-4 border-t border-gray-100 text-center">
-      <p class="text-xs text-gray-400 mb-3">📱 Scan with your banking app</p>
-      <div class="inline-flex items-center justify-center w-40 h-40 bg-gray-50 rounded-2xl border-2 border-dashed border-yellow-300">
-        <div class="text-center">
-          <span class="text-3xl">📱</span>
-          <p class="text-xs text-gray-400 mt-2">QR Code</p>
-          <p class="text-xs text-gray-400">(coming soon)</p>
+    <!-- QR -->
+    <div class="mt-5 pt-5 border-t border-[rgba(255,255,255,0.06)] text-center">
+      <p class="text-xs text-gray-500 mb-3 font-medium uppercase tracking-wider">Scan with your banking app</p>
+      <div class="flex justify-center">
+        <div class="qr-box">
+          <div class="text-center">
+            <span class="text-3xl block mb-1">📱</span>
+            <p class="text-xs text-gray-500">QR coming soon</p>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Thank You -->
-    <div class="mt-5 pt-4 border-t border-gray-100 text-center">
-      <p class="text-yellow-600 font-semibold text-sm">🙏 Thank you for your support!</p>
-      <p class="text-gray-400 text-xs mt-1">Every contribution helps keep Pangea8 free 🚀</p>
+    <div class="mt-5 pt-5 border-t border-[rgba(255,255,255,0.06)] text-center">
+      <p class="text-[#39D07F] font-bold text-sm">🙏 Thank you for supporting free education</p>
+      <p class="text-gray-500 text-xs mt-1">Every contribution keeps Pangea8 growing 🚀</p>
     </div>
   </div>
 
   <!-- Footer -->
-  <div class="text-center pb-8 fade-up">
+  <div class="mt-auto text-center pt-4 fade-up d-7">
     <a href="https://pangea8.com" target="_blank" 
-       class="inline-flex items-center gap-2 text-yellow-600 font-semibold text-sm hover:underline">
-      🌍 pangea8.com
+       class="inline-flex items-center gap-2 text-gray-400 hover:text-[#39D07F] font-medium text-sm transition-all">
+      ← Back to pangea8.com
     </a>
-    <p class="text-gray-400 text-xs mt-2">Built with ❤️ in Uzbekistan</p>
+    <p class="text-gray-600 text-xs mt-3">Built with ❤️ in Uzbekistan 🇺🇿</p>
   </div>
 </div>
 
@@ -163,36 +229,30 @@ function copyText(id, btn) {
   const text = el.textContent.trim();
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(() => showToast(btn));
+    navigator.clipboard.writeText(text);
   } else {
-    // Fallback
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
-    textarea.style.position = 'fixed';
-    textarea.style.opacity = '0';
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    showToast(btn);
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
   }
-}
 
-function showToast(btn) {
-  // Change button text
-  const original = btn.innerHTML;
+  // Button animation
+  const orig = btn.innerHTML;
   btn.innerHTML = '✅ Copied!';
-  btn.classList.add('bg-green-50', 'text-green-600', 'border-green-200');
+  btn.style.background = 'rgba(57,208,127,0.2)';
+  btn.style.color = '#39D07F';
   setTimeout(() => {
-    btn.innerHTML = original;
-    btn.classList.remove('bg-green-50', 'text-green-600', 'border-green-200');
+    btn.innerHTML = orig;
+    btn.style.background = 'rgba(57,208,127,0.1)';
   }, 2000);
 
-  // Show global toast
+  // Toast
   const toast = document.getElementById('toast');
-  toast.textContent = '✅ Card number copied to clipboard!';
+  toast.textContent = '✅ ' + (id === 'cardNum' ? 'Card number' : 'Cardholder name') + ' copied!';
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2500);
+  clearTimeout(window._toastTmr);
+  window._toastTmr = setTimeout(() => toast.classList.remove('show'), 2500);
 }
 </script>
 </body>
