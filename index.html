@@ -4,356 +4,415 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Support Pangea8 — Free IELTS for All</title>
-  <meta name="description" content="Support Pangea8 — free IELTS practice platform. 100+ tests, free forever.">
+  <meta name="description" content="Support Pangea8 — free IELTS practice platform">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      font-family:'Inter',-apple-system,BlinkMacFont,Segoe UI,sans-serif;
-      background:#0b0d17;
+      font-family:'Outfit','Inter',sans-serif;
+      background:#05080c;
       color:#fff;
+      overflow-x:hidden;
       -webkit-font-smoothing:antialiased;
     }
-    .nasa-bg{
-      background: linear-gradient(180deg, #0b0d17 0%, #11152a 50%, #0b0d17 100%);
+    /* 🌌 Premium animated background */
+    .bg-premium{
+      position:fixed;inset:0;z-index:0;
+      background:radial-gradient(ellipse at 20% 50%, rgba(59,130,246,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.05) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 80%, rgba(16,185,129,0.04) 0%, transparent 40%),
+                #05080c;
     }
-    .stars-bg{
-      position:fixed;inset:0;pointer-events:none;z-index:0;
-      background-image:
-        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.3), transparent),
-        radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.2), transparent),
-        radial-gradient(1.5px 1.5px at 50% 10%, rgba(255,255,255,0.4), transparent),
-        radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.3), transparent),
-        radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.2), transparent),
-        radial-gradient(1.5px 1.5px at 15% 85%, rgba(255,255,255,0.25), transparent),
-        radial-gradient(1px 1px at 45% 35%, rgba(255,255,255,0.3), transparent),
-        radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.2), transparent),
-        radial-gradient(1.5px 1.5px at 25% 50%, rgba(255,255,255,0.15), transparent),
-        radial-gradient(1px 1px at 65% 75%, rgba(255,255,255,0.25), transparent),
-        radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,0.2), transparent),
-        radial-gradient(1.5px 1.5px at 75% 5%, rgba(255,255,255,0.3), transparent),
-        radial-gradient(1px 1px at 35% 95%, rgba(255,255,255,0.15), transparent),
-        radial-gradient(1px 1px at 95% 55%, rgba(255,255,255,0.2), transparent),
-        radial-gradient(1.5px 1.5px at 55% 25%, rgba(255,255,255,0.25), transparent);
-      background-size:200px 200px;
+    /* ✨ Particle field */
+    #particles-canvas{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.6}
+
+    /* 🏆 Premium glass card */
+    .glass-premium{
+      position:relative;z-index:2;
+      background:rgba(255,255,255,0.02);
+      backdrop-filter:blur(24px) saturate(1.4);
+      -webkit-backdrop-filter:blur(24px) saturate(1.4);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:24px;
+      transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
     }
-    .content{position:relative;z-index:1}
-    .nasa-stripe{
-      height:4px;
-      background:linear-gradient(90deg, #0b3d91 0%, #fc3d21 50%, #0b3d91 100%);
+    .glass-premium::before{
+      content:'';position:absolute;inset:0;border-radius:24px;
+      background:linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 50%);
+      pointer-events:none;
     }
-    .card-nasa{
+    .glass-premium:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,0.1);
+      box-shadow:0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(59,130,246,0.03);
+    }
+
+    /* 🎯 Premium button */
+    .btn-premium{
+      position:relative;z-index:2;
+      background:linear-gradient(135deg, #3b82f6, #6366f1);
+      border:none;border-radius:60px;
+      color:#fff;font-weight:700;
+      font-size:0.875rem;letter-spacing:0.02em;
+      padding:1rem 2.5rem;
+      cursor:pointer;overflow:hidden;
+      transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      display:inline-flex;align-items:center;gap:0.75rem;
+      box-shadow:0 4px 20px rgba(59,130,246,0.2);
+    }
+    .btn-premium::after{
+      content:'';position:absolute;inset:0;border-radius:60px;
+      background:linear-gradient(135deg, #6366f1, #3b82f6);
+      opacity:0;transition:opacity 0.4s;
+    }
+    .btn-premium:hover{
+      transform:translateY(-2px) scale(1.02);
+      box-shadow:0 8px 30px rgba(59,130,246,0.35);
+    }
+    .btn-premium:hover::after{opacity:1}
+    .btn-premium span,.btn-premium svg{position:relative;z-index:1}
+    .btn-premium:active{transform:scale(0.97)}
+
+    /* 🔘 Copy button */
+    .copy-premium{
       background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.06);
+      border-radius:14px;
+      color:rgba(255,255,255,0.3);
+      font-size:0.65rem;font-weight:600;
+      letter-spacing:0.05em;text-transform:uppercase;
+      padding:0.75rem 1.125rem;
+      cursor:pointer;transition:all 0.3s;
+      backdrop-filter:blur(10px);
+    }
+    .copy-premium:hover{
+      background:rgba(59,130,246,0.08);
+      border-color:rgba(59,130,246,0.2);
+      color:rgba(255,255,255,0.7);
+    }
+
+    /* 📊 Premium stat */
+    .stat-premium{
+      position:relative;z-index:2;
+      background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.04);
+      border-radius:20px;
+      padding:1.25rem 0.75rem;
+      text-align:center;
       backdrop-filter:blur(10px);
       transition:all 0.3s;
     }
-    .card-nasa:hover{
-      background:rgba(255,255,255,0.05);
-      border-color:rgba(255,255,255,0.12);
+    .stat-premium:hover{
+      border-color:rgba(59,130,246,0.15);
+      background:rgba(59,130,246,0.03);
     }
-    .btn-nasa{
-      background:#0b3d91;
-      border:none;
-      color:#fff;
-      font-weight:700;
-      font-size:0.8125rem;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      padding:0.875rem 2rem;
-      cursor:pointer;
-      transition:all 0.3s;
-      display:inline-flex;
-      align-items:center;
-      gap:0.75rem;
-    }
-    .btn-nasa:hover{
-      background:#0a3480;
-      box-shadow:0 0 20px rgba(11,61,145,0.4);
-    }
-    .btn-nasa-outline{
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.15);
-      color:rgba(255,255,255,0.7);
-      font-size:0.65rem;
-      letter-spacing:0.1em;
-      text-transform:uppercase;
-      font-weight:600;
-      padding:0.625rem 1rem;
-      cursor:pointer;
-      transition:all 0.25s;
-    }
-    .btn-nasa-outline:hover{
-      border-color:#fc3d21;
-      color:#fc3d21;
-    }
-    .stat-nasa{
-      background:rgba(255,255,255,0.02);
-      border:1px solid rgba(255,255,255,0.06);
-      padding:1.25rem 0.5rem;
-      text-align:center;
-    }
-    .stat-nasa .value{
-      font-weight:800;
-      font-size:1.75rem;
-      color:#fc3d21;
+    .stat-premium .value{
+      font-family:'Outfit',sans-serif;
+      font-weight:800;font-size:1.75rem;
+      background:linear-gradient(135deg,#60a5fa,#a78bfa);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
       letter-spacing:-0.02em;
     }
-    .stat-nasa .label{
-      font-size:0.55rem;
-      letter-spacing:0.15em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,0.3);
-      margin-top:0.35rem;
-      font-weight:600;
+    .stat-premium .label{
+      font-size:0.55rem;letter-spacing:0.12em;
+      text-transform:uppercase;color:rgba(255,255,255,0.25);
+      font-weight:600;margin-top:0.2rem;
     }
-    .avatar-nasa{
-      width:80px;height:80px;
-      border-radius:50%;
-      border:2px solid rgba(255,255,255,0.1);
+
+    /* 👤 Avatar */
+    .avatar-premium{
+      width:84px;height:84px;border-radius:50%;
+      background:linear-gradient(135deg,#3b82f6,#6366f1,#8b5cf6);
       display:flex;align-items:center;justify-content:center;
-      font-size:28px;font-weight:800;
-      color:#fc3d21;
+      font-family:'Outfit',sans-serif;
+      font-size:28px;font-weight:800;color:#fff;
       margin:0 auto;
-      background:rgba(11,61,145,0.15);
-      box-shadow:0 0 30px rgba(11,61,145,0.2);
+      box-shadow:0 0 40px rgba(59,130,246,0.2),0 8px 32px rgba(0,0,0,0.3);
+      position:relative;z-index:2;
+      animation:avatarFloat 4s ease-in-out infinite;
     }
-    .input-nasa{
-      background:rgba(255,255,255,0.03);
+    @keyframes avatarFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+    /* 🎭 Input */
+    .input-premium{
+      background:rgba(255,255,255,0.02);
       border:1px solid rgba(255,255,255,0.06);
+      border-radius:14px;
       padding:0.875rem 1rem;
-      font-family:'Inter',monospace;
-      font-weight:600;
-      font-size:clamp(0.875rem,3vw,1rem);
-      letter-spacing:0.05em;
+      font-family:'Outfit','Inter',monospace;
+      font-weight:600;font-size:clamp(0.9rem,3vw,1.05rem);
+      letter-spacing:0.04em;
       color:rgba(255,255,255,0.85);
       user-select:all;
-      transition:all 0.25s;
-    }
-    .input-nasa:focus-within{
-      border-color:#fc3d21;
-      background:rgba(252,61,33,0.05);
-    }
-    .label-nasa{
-      font-size:0.55rem;
-      letter-spacing:0.15em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,0.3);
-      font-weight:600;
-      margin-bottom:0.4rem;
-      display:block;
-    }
-    .tag-nasa{
-      display:inline-flex;align-items:center;gap:4px;
-      background:rgba(252,61,33,0.1);
-      color:#fc3d21;
-      font-size:0.55rem;
-      letter-spacing:0.1em;
-      text-transform:uppercase;
-      font-weight:700;
-      padding:0.2rem 0.65rem;
-    }
-    .qr-nasa{
-      width:120px;height:120px;
-      border:1px solid rgba(255,255,255,0.06);
-      padding:3px;
-      margin:0 auto;
       transition:all 0.3s;
-      display:block;
+      backdrop-filter:blur(10px);
     }
-    .qr-nasa:hover{border-color:#fc3d21;}
-    .qr-nasa img{width:100%;height:100%;display:block;}
-    .divider-nasa{height:1px;background:rgba(255,255,255,0.06);margin:1.5rem 0;}
-    .title-nasa{
-      font-weight:800;
-      font-size:clamp(1.75rem,5.5vw,2.5rem);
-      letter-spacing:-0.03em;
-      line-height:1.05;
-      text-transform:uppercase;
+    .input-premium:focus-within{
+      border-color:rgba(59,130,246,0.3);
+      background:rgba(59,130,246,0.03);
+      box-shadow:0 0 30px rgba(59,130,246,0.03);
     }
-    .sub-nasa{
-      font-size:0.75rem;
-      font-weight:400;
-      color:rgba(255,255,255,0.4);
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-    }
-    .hero-badge{
-      display:inline-flex;align-items:center;gap:6px;
-      background:rgba(11,61,145,0.2);
-      border:1px solid rgba(11,61,145,0.3);
+
+    /* 🏷️ Tags */
+    .tag-premium{
+      display:inline-flex;align-items:center;gap:4px;
+      background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.04);
+      border-radius:60px;
       padding:0.3rem 0.75rem;
-      font-size:0.5rem;
-      letter-spacing:0.15em;
-      text-transform:uppercase;
-      color:#0b3d91;
-      font-weight:700;
+      font-size:0.5rem;letter-spacing:0.1em;
+      text-transform:uppercase;color:rgba(255,255,255,0.3);
+      font-weight:600;
     }
-    .hero-badge span{color:#fc3d21;}
-    .earth-glow{
-      position:absolute;
-      width:200px;height:200px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(11,61,145,0.08) 0%, transparent 70%);
-      top:-40px;right:-60px;
-      pointer-events:none;
+    .label-premium{
+      font-size:0.5rem;letter-spacing:0.12em;
+      text-transform:uppercase;color:rgba(255,255,255,0.2);
+      font-weight:600;margin-bottom:0.4rem;display:block;
     }
-    .fade{opacity:0;transform:translateY(16px);animation:f 0.5s ease forwards;}
-    @keyframes f{to{opacity:1;transform:translateY(0);}}
+    .qr-premium{
+      width:120px;height:120px;
+      border:1px solid rgba(255,255,255,0.04);border-radius:16px;
+      padding:4px;margin:0 auto;transition:all 0.3s;display:block;
+      backdrop-filter:blur(10px);
+    }
+    .qr-premium:hover{border-color:rgba(59,130,246,0.2)}
+    .qr-premium img{width:100%;height:100%;display:block;border-radius:12px}
+    .divider-premium{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.04),transparent);margin:1.5rem 0}
+
+    /* 📝 Typography */
+    .title-premium{
+      font-family:'Outfit',sans-serif;
+      font-weight:800;font-size:clamp(2rem,6vw,2.75rem);
+      letter-spacing:-0.03em;line-height:1.05;
+    }
+    .sub-premium{font-size:0.8125rem;font-weight:300;color:rgba(255,255,255,0.35);letter-spacing:0.04em}
+    .hero-chip{
+      display:inline-flex;align-items:center;gap:6px;
+      background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.1);
+      border-radius:60px;padding:0.3rem 0.9rem;
+      font-size:0.55rem;letter-spacing:0.08em;text-transform:uppercase;
+      color:rgba(255,255,255,0.4);font-weight:600;
+    }
+    .hero-chip .dot{
+      width:5px;height:5px;border-radius:50%;
+      background:#3b82f6;display:inline-block;animation:pulse-d 2s infinite;
+    }
+    @keyframes pulse-d{0%,100%{opacity:1}50%{opacity:0.2}}
+
+    /* 🔄 Fade system */
+    .fade{opacity:0;transform:translateY(20px);animation:fadeUp 0.6s cubic-bezier(0.25,0.46,0.45,0.94) forwards}
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
     .d1{animation-delay:0.05s}.d2{animation-delay:0.12s}.d3{animation-delay:0.2s}
     .d4{animation-delay:0.28s}.d5{animation-delay:0.36s}.d6{animation-delay:0.44s}.d7{animation-delay:0.52s}
+
+    /* 🍞 Toast */
     .toast{
-      position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
-      background:#0b3d91;color:#fff;padding:12px 24px;font-size:0.8125rem;
-      font-weight:500;letter-spacing:0.05em;opacity:0;transition:all 0.35s;
+      position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);
+      background:rgba(255,255,255,0.04);backdrop-filter:blur(24px);
+      -webkit-backdrop-filter:blur(24px);
+      border:1px solid rgba(255,255,255,0.06);
+      color:#fff;padding:14px 28px;border-radius:60px;
+      font-size:0.8125rem;font-weight:500;letter-spacing:0.02em;
+      opacity:0;transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
       z-index:100;white-space:nowrap;
+      box-shadow:0 8px 32px rgba(0,0,0,0.4);
     }
-    .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-    .hero-img{
-      width:100%;height:140px;
-      background:linear-gradient(135deg, rgba(11,61,145,0.15) 0%, rgba(252,61,33,0.05) 100%);
-      border:1px solid rgba(255,255,255,0.04);
-      display:flex;align-items:center;justify-content:center;
-      overflow:hidden;position:relative;
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .toast svg{display:inline;vertical-align:middle;margin-right:6px}
+
+    /* 🎨 Gradient border */
+    .gradient-border{
+      position:relative;z-index:2;
+      border-radius:24px;
     }
-    .hero-img svg{width:100%;height:100%;}
+    .gradient-border::before{
+      content:'';position:absolute;inset:-1px;border-radius:25px;
+      background:linear-gradient(135deg,rgba(59,130,246,0.1),transparent 40%,rgba(139,92,246,0.05));
+      z-index:-1;
+    }
+
     @media(max-width:420px){
-      .input-nasa{font-size:0.8125rem;padding:0.75rem;}
-      .stat-nasa .value{font-size:1.35rem;}
+      .input-premium{font-size:0.8125rem;padding:0.75rem}
+      .stat-premium .value{font-size:1.35rem}
     }
   </style>
 </head>
-<body class="nasa-bg min-h-screen">
-<div class="stars-bg"></div>
-<div class="nasa-stripe"></div>
+<body>
+<div class="bg-premium"></div>
+<canvas id="particles-canvas"></canvas>
 
-<div id="toast" class="toast">✓ Copied</div>
+<div id="toast" class="toast">✅ Copied</div>
 
-<div class="content max-w-[420px] mx-auto px-5 py-8 min-h-screen flex flex-col">
+<div class="relative z-10 max-w-[420px] mx-auto px-5 py-10 min-h-screen flex flex-col">
 
-  <!-- Hero Image -->
-  <div class="hero-img mb-6 fade d1" style="background:linear-gradient(135deg, #0a1628 0%, #1a1f3a 50%, #0b0d17 100%);border:1px solid rgba(255,255,255,0.04);border-radius:4px;height:160px">
-    <div style="text-align:center;opacity:0.6">
-      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="30" cy="30" r="28" stroke="#0b3d91" stroke-width="1.5" opacity="0.5"/>
-        <circle cx="30" cy="30" r="18" stroke="#fc3d21" stroke-width="1" opacity="0.4"/>
-        <circle cx="30" cy="30" r="8" fill="#fc3d21" opacity="0.3"/>
-        <path d="M30 2C30 2 35 15 35 30C35 45 30 58 30 58" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
-        <path d="M30 2C30 2 25 15 25 30C25 45 30 58 30 58" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
-        <circle cx="10" cy="15" r="1.5" fill="rgba(255,255,255,0.3)"/>
-        <circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.2)"/>
-        <circle cx="45" cy="45" r="1.5" fill="rgba(255,255,255,0.25)"/>
-        <circle cx="15" cy="48" r="1" fill="rgba(255,255,255,0.15)"/>
-      </svg>
-      <p style="font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-top:8px">Pangea8 · Education for All</p>
-    </div>
-  </div>
-
-  <!-- Hero Text -->
-  <div class="text-center fade d2 mb-6">
-    <div class="hero-badge mb-3">☕ <span>Support</span> · Mission</div>
-    <h1 class="title-nasa text-white mb-2">Support<br>Pangea8</h1>
-    <p class="sub-nasa max-w-[280px] mx-auto">Free IELTS preparation for every student</p>
+  <!-- Hero -->
+  <div class="text-center fade d1 mb-6" style="position:relative;z-index:2">
+    <div class="avatar-premium mb-4">M</div>
+    <div class="hero-chip mb-3"><span class="dot"></span> Support · Free Education</div>
+    <h1 class="title-premium text-white mb-2">Support<br>Pangea8</h1>
+    <p class="sub-premium max-w-[280px] mx-auto">100+ free IELTS practice tests. Built in Uzbekistan.</p>
   </div>
 
   <!-- About -->
-  <div class="card-nasa p-5 mb-4 fade d3">
-    <p class="text-[0.8125rem] font-light text-[rgba(255,255,255,0.55)] leading-relaxed">
-      <span class="font-semibold text-white">Mission:</span> Free, accessible IELTS preparation for all.
-    </p>
-    <p class="text-[0.8125rem] font-light text-[rgba(255,255,255,0.55)] leading-relaxed mt-3">
-      I'm <span class="font-semibold text-white">Maqsudjon</span>, creator of 
-      <a href="https://pangea8.com" target="_blank" class="text-white font-medium border-b border-[#fc3d21] hover:border-b-2 transition-all">pangea8.com</a>.
-      <span class="text-white">100+ tests</span>, all free, built in Uzbekistan.
-    </p>
-    <p class="text-[0.8125rem] font-light text-[rgba(255,255,255,0.45)] leading-relaxed mt-3">
-      Your support = more tests, more reach. 🚀
-    </p>
+  <div class="gradient-border fade d2 mb-4">
+    <div class="glass-premium p-5">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+        <span style="width:3px;height:20px;border-radius:2px;background:linear-gradient(180deg,#3b82f6,#6366f1);display:inline-block"></span>
+        <span style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);font-weight:600">About</span>
+      </div>
+      <p class="text-[0.875rem] font-light text-[rgba(255,255,255,0.55)] leading-relaxed">
+        Hi, I'm <span class="font-semibold text-white">Maqsudjon</span> — creator of 
+        <a href="https://pangea8.com" target="_blank" class="text-[#60a5fa] font-medium border-b border-[rgba(96,165,250,0.2)] hover:border-[#60a5fa] transition-all">pangea8.com</a>.
+      </p>
+      <p class="text-[0.875rem] font-light text-[rgba(255,255,255,0.5)] leading-relaxed mt-3">
+        <span class="text-white font-medium">100+ free tests</span> across Listening, Reading, Writing, Speaking — instant band scores, zero paywalls. Built for every student. 🎯
+      </p>
+      <p class="text-[0.875rem] font-light text-[rgba(255,255,255,0.4)] leading-relaxed mt-3">
+        Your support helps us grow. 🙏
+      </p>
+    </div>
   </div>
 
   <!-- Stats -->
-  <div class="grid grid-cols-3 gap-px bg-[rgba(255,255,255,0.06)] mb-5 fade d4">
-    <div class="stat-nasa"><div class="value">100+</div><div class="label">Tests</div></div>
-    <div class="stat-nasa"><div class="value">4</div><div class="label">Skills</div></div>
-    <div class="stat-nasa"><div class="value">$0</div><div class="label">Free</div></div>
+  <div class="grid grid-cols-3 gap-2 mb-5 fade d3">
+    <div class="stat-premium"><div class="value">100+</div><div class="label">Tests</div></div>
+    <div class="stat-premium"><div class="value">4</div><div class="label">Skills</div></div>
+    <div class="stat-premium"><div class="value">$0</div><div class="label">Free</div></div>
   </div>
 
   <!-- Donate CTA -->
   <div class="text-center mb-5 fade d4">
-    <a href="#donate" class="btn-nasa">
-      Donate — Support
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+    <a href="#donate" class="btn-premium text-sm">
+      <span>☕ Donate — Support IELTS</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
     </a>
   </div>
 
   <!-- Bank Card -->
-  <div id="donate" class="card-nasa p-5 mb-4 fade d5 scroll-mt-20">
-    <div class="flex items-center justify-between mb-5">
-      <div class="flex items-center gap-2">
-        <span class="text-[0.55rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.25)] font-semibold">Transfer</span>
+  <div id="donate" class="gradient-border fade d5 scroll-mt-20 mb-4">
+    <div class="glass-premium p-5">
+      <div class="flex items-center justify-between mb-5">
+        <div class="flex items-center gap-2">
+          <span style="font-size:1.1rem">💳</span>
+          <span style="font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);font-weight:600">Bank transfer</span>
+        </div>
+        <span class="tag-premium">mastercard</span>
       </div>
-      <span class="tag-nasa">mastercard</span>
-    </div>
 
-    <!-- Card Number -->
-    <div class="mb-3">
-      <label class="label-nasa">Card number</label>
-      <div class="flex items-stretch gap-1">
-        <div class="input-nasa flex-1 flex items-center" id="cardNum">5477 3300 2441 7911</div>
-        <button onclick="copyText('cardNum',this)" class="btn-nasa-outline">Copy</button>
+      <!-- Card Number -->
+      <div class="mb-3">
+        <label class="label-premium">Card number</label>
+        <div class="flex items-stretch gap-1.5">
+          <div class="input-premium flex-1 flex items-center" id="cardNum">5477 3300 2441 7911</div>
+          <button onclick="copyText('cardNum',this)" class="copy-premium">Copy</button>
+        </div>
       </div>
-    </div>
 
-    <!-- Cardholder -->
-    <div class="mb-3">
-      <label class="label-nasa">Cardholder</label>
-      <div class="flex items-stretch gap-1">
-        <div class="input-nasa flex-1 flex items-center" id="cardName">POLATOV MAKSUDJON</div>
-        <button onclick="copyText('cardName',this)" class="btn-nasa-outline">Copy</button>
+      <!-- Cardholder -->
+      <div class="mb-3">
+        <label class="label-premium">Cardholder</label>
+        <div class="flex items-stretch gap-1.5">
+          <div class="input-premium flex-1 flex items-center tracking-normal" id="cardName">POLATOV MAKSUDJON</div>
+          <button onclick="copyText('cardName',this)" class="copy-premium">Copy</button>
+        </div>
       </div>
-    </div>
 
-    <!-- Type -->
-    <div class="flex items-center gap-3 border border-[rgba(255,255,255,0.06)] p-3">
-      <span class="text-xs opacity-40">💳</span>
-      <span class="text-[0.75rem] text-[rgba(255,255,255,0.5)] font-medium">Mastercard</span>
-      <span class="text-[0.5rem] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.15)] ml-auto">International</span>
-    </div>
+      <!-- Type -->
+      <div class="flex items-center gap-3 border border-[rgba(255,255,255,0.04)] rounded-xl p-3" style="backdrop-filter:blur(10px)">
+        <span class="text-sm opacity-40">💳</span>
+        <span class="text-[0.75rem] text-[rgba(255,255,255,0.45)] font-medium">Mastercard</span>
+        <span class="text-[0.5rem] uppercase tracking-[0.12em] text-[rgba(255,255,255,0.1)] ml-auto font-medium">International</span>
+      </div>
 
-    <!-- QR -->
-    <div class="divider-nasa"></div>
-    <div class="text-center">
-      <p class="label-nasa text-center" style="margin-bottom:0.75rem">Scan with mobile banking</p>
-      <div class="qr-nasa"><img src="qr-code.png" alt="QR"></div>
-    </div>
+      <!-- QR -->
+      <div class="divider-premium"></div>
+      <div class="text-center">
+        <p class="label-premium text-center" style="margin-bottom:0.75rem">Scan with mobile banking</p>
+        <div class="qr-premium"><img src="qr-code.png" alt="QR"></div>
+      </div>
 
-    <!-- Thank you -->
-    <div class="divider-nasa"></div>
-    <p class="text-[0.7rem] text-center font-light text-[rgba(255,255,255,0.35)] leading-relaxed uppercase tracking-[0.05em]">
-      Thank you for supporting free education.
-    </p>
+      <!-- Thank you -->
+      <div class="divider-premium"></div>
+      <p class="text-[0.75rem] text-center font-light text-[rgba(255,255,255,0.3)] leading-relaxed">
+        Thank you for supporting free education. 💛<br>
+        <span style="font-size:0.6rem;color:rgba(255,255,255,0.15)">Every contribution keeps Pangea8 growing</span>
+      </p>
+    </div>
   </div>
 
   <!-- Footer -->
-  <div class="mt-auto text-center pt-4 fade d7">
-    <a href="https://pangea8.com" target="_blank" class="inline-flex items-center gap-1 text-[0.55rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.15)] hover:text-[#fc3d21] transition-colors font-semibold">
+  <div class="text-center pt-4 fade d7" style="position:relative;z-index:2">
+    <a href="https://pangea8.com" target="_blank" class="inline-flex items-center gap-1 text-[0.55rem] uppercase tracking-[0.15em] text-[rgba(255,255,255,0.12)] hover:text-[#60a5fa] transition-colors font-semibold">
       ← pangea8.com
     </a>
-    <p class="text-[0.45rem] uppercase tracking-[0.2em] text-[rgba(255,255,255,0.06)] mt-3 font-semibold">Built in Uzbekistan</p>
+    <p class="text-[0.45rem] uppercase tracking-[0.2em] text-[rgba(255,255,255,0.04)] mt-3 font-semibold">Built in Uzbekistan</p>
   </div>
 </div>
 
 <script>
+// ✨ Premium particle system
+(function(){
+  const c=document.getElementById('particles-canvas');
+  const ctx=c.getContext('2d');
+  let W,H,particles=[];
+  function resize(){
+    W=c.width=window.innerWidth;
+    H=c.height=window.innerHeight;
+  }
+  window.addEventListener('resize',resize);
+  resize();
+  for(let i=0;i<50;i++){
+    particles.push({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,
+      r:Math.random()*1.5+0.5,
+      o:Math.random()*0.4+0.1
+    });
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(96,165,250,${p.o})`;
+      ctx.fill();
+    });
+    // Draw connections
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[i].x-particles[j].x;
+        const dy=particles[i].y-particles[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<120){
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle=`rgba(96,165,250,${0.06*(1-dist/120)})`;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// 📋 Copy function
 function copyText(id,btn){
   const el=document.getElementById(id);const text=el.textContent.trim();
   if(navigator.clipboard?.writeText){navigator.clipboard.writeText(text);}
   else{const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);}
-  const orig=btn.innerHTML;btn.innerHTML='Copied';btn.style.borderColor='#fc3d21';btn.style.color='#fc3d21';
-  setTimeout(()=>{btn.innerHTML=orig;btn.style.borderColor='';btn.style.color='';},1500);
-  const t=document.getElementById('toast');t.textContent='✓ '+(id==='cardNum'?'Card number':'Cardholder name')+' copied';
-  t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),2000);
+  const orig=btn.innerHTML;btn.innerHTML='Copied';
+  btn.style.background='rgba(59,130,246,0.1)';btn.style.borderColor='rgba(59,130,246,0.2)';btn.style.color='rgba(255,255,255,0.7)';
+  setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';btn.style.borderColor='';btn.style.color='';},1500);
+  const t=document.getElementById('toast');
+  t.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ${id==='cardNum'?'Card number':'Cardholder name'} copied`;
+  t.classList.add('show');clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),2200);
 }
 </script>
 </body>
